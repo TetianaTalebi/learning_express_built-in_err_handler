@@ -1,6 +1,8 @@
 const express = require('express');
 const app = express();
 
+
+
 app.get('/', (req, res) => {
     res.send('Home page!')
 })
@@ -8,6 +10,15 @@ app.get('/', (req, res) => {
 
 app.get('/error', (req, res) =>{
     chicken.fly();
+})
+
+app.use((err, req, res, next)=>{
+    console.log("*************************");
+    console.log("*************************");
+    console.log("*********ERROR***********");
+    console.log("*************************");
+    console.log("*************************");
+    res.status(500).send("We've got an error");
 })
 
 
