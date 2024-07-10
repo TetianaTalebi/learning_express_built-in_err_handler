@@ -19,6 +19,10 @@ app.get('/error', (req, res) =>{
     chicken.fly();
 })
 
+app.get('/secret', (req, res) =>{
+    res.send('There is no secret!');
+})
+
 
 
 app.use((err, req, res, next)=>{
