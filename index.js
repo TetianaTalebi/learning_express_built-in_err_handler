@@ -26,14 +26,14 @@ app.get('/secret', verifyFakePassword, (req, res) =>{
 
 
 
-app.use((err, req, res, next)=>{
-    console.log("*************************");
-    console.log("*************************");
-    console.log("*********ERROR***********");
-    console.log("*************************");
-    console.log("*************************");
-    res.status(500).send("We've got an error");
-})
+// app.use((err, req, res, next)=>{
+//     console.log("*************************");
+//     console.log("*************************");
+//     console.log("*********ERROR***********");
+//     console.log("*************************");
+//     console.log("*************************");
+//     res.status(500).send("We've got an error");
+// })
 
 
 // Start a web server and listen to the connections on port 8080
