@@ -2,15 +2,24 @@ const express = require('express');
 const app = express();
 const AppError = require('./AppError');
 
+const verifyFakePassword = (req, res, next)=>{
+    const {fakePassword} = req.query;
+    if (fakePassword==='chicken'){
+        next();
+    }
+    res.send('Sorry, you need a password!');
+}
+
 
 app.get('/', (req, res) => {
     res.send('Home page!')
 })
 
-
 app.get('/error', (req, res) =>{
     chicken.fly();
 })
+
+
 
 app.use((err, req, res, next)=>{
     console.log("*************************");
