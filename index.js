@@ -3,8 +3,8 @@ const app = express();
 const AppError = require('./AppError');
 
 const verifyFakePassword = (req, res, next)=>{
-    const {fakePassword} = req.query;
-    if (fakePassword==='chicken'){
+    const {password} = req.query;
+    if (password==='chicken'){
         next();
     }
     res.send('Sorry, you need a password!');
@@ -19,7 +19,7 @@ app.get('/error', (req, res) =>{
     chicken.fly();
 })
 
-app.get('/secret', (req, res) =>{
+app.get('/secret', verifyFakePassword, (req, res) =>{
     res.send('There is no secret!');
 })
 
