@@ -5,9 +5,10 @@ const AppError = require('./AppError');
 const verifyFakePassword = (req, res, next)=>{
     const {password} = req.query;
     if (password==='chicken'){
-        return next();
+         return next();
     }
-    res.send('Sorry, you need a password!');
+    throw new AppError('Password required!', 401);
+    // res.send('Sorry, you need a password!');
 }
 
 
