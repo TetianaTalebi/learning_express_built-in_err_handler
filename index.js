@@ -24,6 +24,11 @@ app.get('/secret', verifyFakePassword, (req, res) =>{
     res.send('There is no secret!');
 })
 
+app.use((err, req, res, next) =>{
+    const {status} = err;
+    res.status(status).send('ERRORRRR!')
+})
+
 
 
 // app.use((err, req, res, next)=>{
