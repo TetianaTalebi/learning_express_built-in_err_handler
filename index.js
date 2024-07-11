@@ -24,6 +24,10 @@ app.get('/secret', verifyFakePassword, (req, res) =>{
     res.send('There is no secret!');
 })
 
+app.get('/admin', (req, res)=>{
+    throw new AppError('You are not an admin!!!', 403)
+})
+
 app.use((err, req, res, next) =>{
     const {
             status=500,
